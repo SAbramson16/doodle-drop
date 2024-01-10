@@ -18,10 +18,12 @@ Art.init(
     description: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
+    imageUrl: {
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      validate: {
+        isUrl: true
+      }
     },
     user_id: {
       type: DataTypes.INTEGER,
