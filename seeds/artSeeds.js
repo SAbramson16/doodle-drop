@@ -8,7 +8,7 @@ const artData = [
         medium: 'Digital Paint',
     },
     {
-        title: 'Cute Kitty',
+        title: 'Apples',
         imageURL: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Frealismtoday.com%2Fstill-life-realism-getting-lost-in-the-process%2F&psig=AOvVaw2NKHlM-aDV6nhNQUisIoZW&ust=1704999895019000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCNDB2oHC04MDFQAAAAAdAAAAABAD',
         description: 'Still Life Apples',
         medium: 'Oil Paints',
