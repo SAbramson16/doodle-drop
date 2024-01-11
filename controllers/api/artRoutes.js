@@ -1,5 +1,12 @@
+// middleware for multipart uploads to S3
+const multer = require('multer');
 const router = require('express').Router();
+
 const { Art, Category, User } = require('../../models');
+const { deleteFromS3, s3Upload, generateS3Url } = require('../../utils/aws');
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 // The `/api/art` endpoint
 
@@ -10,6 +17,11 @@ router.get('/', async (req, res) => {
     const artData = await Art.findAll( {
       include: [{ model: Category }, { model: User }]
     });
+
+    for (const art of artData) {
+      art.imageUrl = await generateS3Url(art.imageUrl);
+    }
+
     console.log(artData);
     res.status(200).json(artData);
   } catch (err) {
@@ -28,6 +40,8 @@ router.get('/:id', async (req, res) => {
       res.status(404).json({ message: 'No art found with that id!'});
       return;
     }
+
+    artData.imageUrl = generateS3Url(artData.imageUrl);
     res.status(200).json(artData);
   } catch (err) {
     res.status(500).json(err);
@@ -35,62 +49,22 @@ router.get('/:id', async (req, res) => {
 });
 
 // create new art - NOT WORKING YET
-router.post('/', async (req, res) => {
-    // create a new art
-    try {
-      const artData = await Art.create(req.body, {
-        include: [{ model: Category }, { model: User }]
-      });
-      res.status(200).json(artData);
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
-  
+router.post('/', upload.single('image'), async (req, res) => {
+  // create a new art
+  try {
+    const artData = await Art.create(req.body, {
+      include: [{ model: Category }, { model: User }]
+    });
 
-// // update product
-// router.put('/:id', (req, res) => {
-//   // update product data
-//   Product.update(req.body, {
-//     where: {
-//       id: req.params.id,
-//     },
-//   })
-//     .then((product) => {
-//       if (req.body.tagIds && req.body.tagIds.length) {
-        
-//         ProductTag.findAll({
-//           where: { product_id: req.params.id }
-//         }).then((productTags) => {
-//           // create filtered list of new tag_ids
-//           const productTagIds = productTags.map(({ tag_id }) => tag_id);
-//           const newProductTags = req.body.tagIds
-//           .filter((tag_id) => !productTagIds.includes(tag_id))
-//           .map((tag_id) => {
-//             return {
-//               product_id: req.params.id,
-//               tag_id,
-//             };
-//           });
-
-//             // figure out which ones to remove
-//           const productTagsToRemove = productTags
-//           .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
-//           .map(({ id }) => id);
-//                   // run both actions
-//           return Promise.all([
-//             ProductTag.destroy({ where: { id: productTagsToRemove } }),
-//             ProductTag.bulkCreate(newProductTags),
-//           ]);
-//         });
-//       }
-
-//       return res.json(product);
-//     })
-//     .catch((err) => {
-//       res.status(400).json(err);
-//     });
-// });
+    const imageUrl = await s3Upload(req.file.buffer, req.file.mimetype);
+    artData.imageUrl = imageUrl;
+    await artData.save({ fields: ['imageUrl'] });
+ 
+    res.status(200).json(artData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 router.delete('/:id', async (req, res) => {
   // delete one art by its `id` value
@@ -100,10 +74,13 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id,
       },
     });
+
     if (!artData) {
       res.status(404).json({ message: 'No art found with that id!'});
       return;
     }
+
+    await deleteFromS3(artData.imageUrl);
     res.status(200).json(artData);
   } catch (err) {
     res.status(500).json(err);
