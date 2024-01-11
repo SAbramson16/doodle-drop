@@ -4,7 +4,6 @@ const Category = require('./Category');
 
 User.hasMany(Art, {
     foreignKey: "user_id",
-    onDelete: 'CASCADE'
 });
 
 Category.hasMany(Art, {
@@ -13,7 +12,13 @@ Category.hasMany(Art, {
 
 Art.belongsTo(Category, {
     foreignKey: 'category_id',
+    onDelete: 'CASCADE'
 });
+
+Art.belongsTo(User, {
+    foreignKey:"user_id",
+    onDelete: 'CASCADE'
+})
 
 module.exports = {
     User,
