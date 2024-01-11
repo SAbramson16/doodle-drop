@@ -34,12 +34,12 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// create new art 
+// create new art - NOT WORKING YET
 router.post('/', async (req, res) => {
     // create a new art
     try {
       const artData = await Art.create(req.body, {
-        include: [{ model: Category }, { model: Art }]
+        include: [{ model: Category }, { model: User }]
       });
       res.status(200).json(artData);
     } catch (err) {
