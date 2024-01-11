@@ -1,0 +1,57 @@
+<section class="section">
+  <div class="container">
+    <!-- Image Display -->
+    <figure class="image is-4by3">
+      <img src="https://placekitten.com/400/300" alt="Placeholder image">
+    </figure>
+
+    <!-- Username and Date -->
+    <div class="content">
+      <p>
+        <strong>Username:</strong> {{Art.user_id}}
+        <br>
+        <small>Date Uploaded: {{Art.date_created}} </small>
+      </p>
+    </div>
+
+    <!-- Comment Section -->
+    <div class="comment-section">
+      <!-- Comment List -->
+      <div class="box">
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>{{User.name}}:</strong> This is an awesome picture!
+                <br>
+                <small>Posted on: January 10, 2024</small>
+              </p>
+            </div>
+          </div>
+        </article>
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Commenter2:</strong> I love it!
+                <br>
+                <small>Posted on: January 10, 2024</small>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Add a Comment -->
+      <div class="field">
+        <label class="label">Add a comment:</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Your comment..."></textarea>
+        </div>
+        <div class="control">
+          <button class="button is-primary">Post Comment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
