@@ -1,0 +1,143 @@
+:root {
+    --darkestblue: #1A1A2E;
+    --midblue: #16213E;
+    --blue: #0F3460;
+    --red: #E94560;
+    --bone: #FFE7C1;
+    --green: #03C988;
+    margin: 0px;
+
+}
+
+.navbar-menu {
+    background-color: var(--red);
+    transition-duration: 200ms;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.navbar-menu a {
+    color: var(--darkestblue);
+    transition-duration: 200ms;
+}
+
+.navbar-menu a:hover {
+    background-color: var(--red);
+    color: var(--bone);
+
+}
+
+.hero {
+    background-color: var(--darkestblue);
+}
+
+body p {
+    color: var(--bone);
+    background-color: var(--midblue);
+    font-family: 'Roboto', sans-serif;
+}
+
+.box {
+    background-color: var(--midblue);
+}
+
+.textarea {
+    background-color: var(--blue);
+    color: var(--bone);
+    border-style: none;
+}
+
+body strong {
+    color: var(--green);
+}
+
+.label {
+    color: var(--green);
+}
+
+#commentButton {
+    background-color: var(--green);
+    color: var(--bone);
+    border-style: none;
+    font-family: 'Roboto', sans-serif;
+    transition-duration: 200ms;
+}
+
+#commentButton:hover {
+    background-color: var(--bone);
+    color: var(--green);
+}
+
+.card-content {
+    background-color: var(--midblue);
+}
+
+.content {
+    background-color: var(--blue);
+    color: var(--bone);
+}
+
+.title.is-4 {
+    color: var(--green);
+}
+
+.subtitle.is-6 {
+    color: var(--bone);
+}
+
+.title {
+    color: var(--green);
+}
+
+.input {
+    background-color: var(--midblue);
+    border-style: none;
+    color: var(--bone);
+    font-family: 'Roboto', sans-serif;
+}
+
+#name-signup::placeholder {
+    color: var(--bone);
+}
+
+#email-signup::placeholder {
+    color: var(--bone);
+}
+
+#password-signup::placeholder {
+    color: var(--bone);
+}
+
+#username-login::placeholder {
+    color: var(--bone);
+}
+
+#password-login::placeholder {
+    color: var(--bone);
+}
+
+#loginButton {
+    background-color: var(--green);
+    color: var(--bone);
+    border-style: none;
+    font-family: 'Roboto', sans-serif;
+    transition-duration: 200ms;    
+}
+
+#loginButton:hover {
+    background-color: var(--bone);
+    color: var(--green);
+}
+
+#signupButton {
+    background-color: var(--green);
+    color: var(--bone);
+    border-style: none;
+    font-family: 'Roboto', sans-serif;
+    transition-duration: 200ms;    
+}
+
+#signupButton:hover {
+    background-color: var(--bone);
+    color: var(--green);
+}

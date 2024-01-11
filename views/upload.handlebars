@@ -1,0 +1,23 @@
+ <section class="section">
+            <div class="container">
+              <h1 class="title">Upload Photo</h1>
+              
+              <!-- Photo Upload Form -->
+              <div class="upload-container">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                  <div class="field">
+                    <label class="label">Select Photo</label>
+                    <div class="control">
+                      <input class="input" type="file" name="photo" accept="image/*" required>
+                    </div>
+                  </div>
+                  
+                  <div class="field">
+                    <div class="control">
+                      <button class="button is-primary" type="submit">Upload</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </section>
