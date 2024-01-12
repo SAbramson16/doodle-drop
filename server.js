@@ -4,7 +4,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const homeRoutes = require('./controllers/homeRoutes'); 
+const homeRoutes = require('./controllers'); 
 
 // Initialize Express application
 dotenv.config();
