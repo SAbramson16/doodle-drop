@@ -13,11 +13,16 @@ Art.init(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
+    },
+
+    medium: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     imageUrl: {
       type: DataTypes.STRING,
