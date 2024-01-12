@@ -1,4 +1,5 @@
 // Import required modules
+const dotenv = require('dotenv');
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -6,6 +7,7 @@ const exphbs = require('express-handlebars');
 const homeRoutes = require('./controllers/homeRoutes'); 
 
 // Initialize Express application
+dotenv.config();
 const app = express();
 
 // Set up port

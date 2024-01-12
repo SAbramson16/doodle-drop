@@ -17,7 +17,12 @@ Art.init(
     },
     description: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
+    medium: {
+      type: DataTypes.STRING,
+      allowNull: false,
+  },
     imageUrl: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -33,10 +38,13 @@ Art.init(
         key: 'id',
       },
     },
-    medium: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
+        key: 'id',
+      }
+    }
   },
   {
     sequelize,
