@@ -51,7 +51,12 @@ router.get('/:id', async (req, res) => {
 });
 
 // create new art - NOT WORKING YET
+
+
+router.post('/', upload.single('image'), async (req, res) => {
+
 router.post('/', withAuth, upload.single('image'), async (req, res) => {
+
   // create a new art
   try {
     const newArt = await Art.create({
