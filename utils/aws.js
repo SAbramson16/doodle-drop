@@ -9,28 +9,26 @@ const bucketName = process.env.AWS_BUCKET_NAME;
 
 const RESIZE_OPTIONS = { height: 1920, width: 1080, fit: 'contain' };
 
-const randomImageName = (bytes =32) => crypto.randomBytes(bytes).toString('hex');
-
 const client = new S3Client({
   credentials: { accessKeyId, secretAccessKey }, region
 });
 
-async function upload(fileBuffer, mimetype) {
+async function upload(fileName, fileBuffer, mimetype) {
   const buffer = await sharp(fileBuffer).resize(RESIZE_OPTIONS).toBuffer();
-  const imageName = randomImageName();
 
   const command = new PutObjectCommand({
     Bucket: bucketName,
-    Key: imageName,
+    Key: fileName,
     Body: buffer,
     ContentType: mimetype,
   });
 
   try {
     const response = await client.send(command);
-    console.log(response);
+    return `https://${bucketName}.s3.amazonaws.com/${req.file.originalname}`;
   } catch (err) {
     console.error(err);
+    throw(err);
   }
 }
 
