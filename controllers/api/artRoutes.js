@@ -49,6 +49,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // create new art - NOT WORKING YET
+
 router.post('/', upload.single('image'), async (req, res) => {
   // create a new art
   try {

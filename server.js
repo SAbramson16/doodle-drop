@@ -4,7 +4,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const homeRoutes = require('./controllers/homeRoutes'); 
+const routes = require('./controllers');
 
 // Initialize Express application
 dotenv.config();
@@ -46,8 +46,7 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware for serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Use homeRoutes for the root path '/'
-app.use('/', homeRoutes);
+app.use('/', routes);
 
 // Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {
