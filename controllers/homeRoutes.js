@@ -1,6 +1,5 @@
-const router = require('express').Router();
-const { Art, User } = require('../models');
-const withAuth = require('../utils/auth');
+const express = require('express');
+const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
@@ -67,15 +66,27 @@ router.get('/profile', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
-
+  
+// Login route
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
   res.render('login');
 });
 
+// Profile route
+router.get('/profile', (req, res) => {
+    res.render('profile'); 
+});
+
+// Upload route
+router.get('/upload', (req, res) => {
+    res.render('upload');
+
+});
+
+// Home route
+router.get('/home', (req, res) => {
+    res.render('home'); 
+});
+
+// Export the router
 module.exports = router;
