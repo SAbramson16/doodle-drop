@@ -1,19 +1,21 @@
+// Import required modules
 const dotenv = require('dotenv');
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-// const exphbs = require('express-handlebars');
-const routes = require('./controllers');
-// const helpers = require('./utils/helpers');
+const exphbs = require('express-handlebars');
+const homeRoutes = require('./controllers/homeRoutes'); 
 
-const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
+// Initialize Express application
 dotenv.config();
 const app = express();
+
+// Set up port
 const PORT = process.env.PORT || 3001;
 
-// const hbs = exphbs.create({ helpers });
+// Configure session
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
   secret: 'Super secret secret',
@@ -30,18 +32,26 @@ const sess = {
   })
 };
 
-//add back sess into params?
+// Set up session middleware
 app.use(session(sess));
 
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
+// Set up Handlebars engine
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
+// Middleware for JSON and form data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Middleware for serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(routes);
+// Use homeRoutes for the root path '/'
+app.use('/', homeRoutes);
 
+// Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
 });
