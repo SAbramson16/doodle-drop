@@ -19,6 +19,7 @@ Art.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+
     medium: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -26,7 +27,7 @@ Art.init(
     imageUrl: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fcamera_5904483&psig=AOvVaw00PHGoAd1X_GovF-jjZdZo&ust=1705000670662000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCODlsOHE04MDFQAAAAAdAAAAABBC',
+      defaultValue: 'www.placekitten.com',
       validate: {
         isUrl: true
       }
