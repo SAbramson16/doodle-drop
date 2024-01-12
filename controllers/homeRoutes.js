@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all arts and JOIN with user data
+    // Get all arts and JOIN with user data.
     const artData = await Art.findAll({
       include: [
         {
