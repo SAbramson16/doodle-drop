@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     const arts = artData.map((art) => art.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('home', { 
       arts, 
       logged_in: req.session.logged_in 
     });
@@ -41,7 +41,7 @@ router.get('/art/:id', async (req, res) => {
     const art = artData.get({ plain: true });
 
     res.render('art', {
-      ...art,
+      art,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -61,7 +61,7 @@ router.get('/profile', withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
 
     res.render('profile', {
-      ...user,
+      user,
       logged_in: true
     });
   } catch (err) {

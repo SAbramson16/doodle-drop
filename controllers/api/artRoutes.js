@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product
+// get one art
 router.get('/:id', async (req, res) => {
   // find a single art by its `id`
   try {
