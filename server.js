@@ -46,6 +46,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware for serving static files
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
