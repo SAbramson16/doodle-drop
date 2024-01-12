@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const withAuth = require('../utils/auth')
 
 router.get('/', async (req, res) => {
   try {
@@ -66,6 +67,7 @@ router.get('/profile', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
   
 // Login route
 router.get('/login', (req, res) => {
