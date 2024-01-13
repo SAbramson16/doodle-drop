@@ -21,6 +21,9 @@ const loginFormHandler = async (event) => {
         alert(response.statusText);
       }
     }
+    if (!name || !password) {
+      alert('Please enter valid name and password or sign up!');
+    }
   };
   
   const signupFormHandler = async (event) => {
@@ -50,7 +53,7 @@ const loginFormHandler = async (event) => {
     .addEventListener('submit', loginFormHandler);
   
   document
-    .querySelector('.signup-section')
+    .querySelector('.signup-form')
     .addEventListener('submit', signupFormHandler);
   
     

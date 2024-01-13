@@ -23,23 +23,23 @@
               <div class="navbar-item"></div>
               <img src="/images/DoodleLogo.png" width="250" height="50">
             </div>
-            <div class="buttons">
-              <a class="navbar-item" href="/cartoon">Cartoon</a>
-              <a class="navbar-item" href="/realism">Realism</a>
-              <a class="navbar-item" href="/abstract">Abstract</a>
-              <a class="navbar-item" href="/digital">Digital</a>
-              <a class="navbar-item" href="/sketch">Sketch</a>
-            </div>
+            <a class="navbar-item" href="/cartoon">Cartoon</a>
+            <a class="navbar-item" href="/realism">Realism</a>
+            <a class="navbar-item" href="/abstract">Abstract</a>
+            <a class="navbar-item" href="/digital">Digital</a>
+            <a class="navbar-item" href="/Sketch">Sketch</a>
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="navbar-item">Profile</a>
-                <a class="navbar-item">Logout</a>
-                <a class="github-button" href="https://github.com/RecceRaven/DoodleDrop"
-
+                <a class="navbar-item" >Profile</a>
+                <a class="navbar-item" href="/login" id="login">Login</a>
+                {{#if logged_in}}
+                <a class="navbar-item" href="/logout" id="logout">Logout</a>
+                {{/if}}
+                <a class="github-button" href="https://github.com/RecceRaven"
                   data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large"
-                  aria-label="See the repo on GitHub">Repo on GitHub</a>
+                  aria-label="Follow @RecceRaven on GitHub">Follow @RecceRaven</a>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@
       <nav class="tabs">
         <div class="container">
           <ul>
-            <li><a>Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a>Contact Us</a></li>
             <li><a>Careers</a></li>
           </ul>
