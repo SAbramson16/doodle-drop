@@ -28,6 +28,64 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/cartoon', async (req, res) => {
+  try {
+    const arts = await getArtsByCategoryId(1);
+    renderCategory(res, arts, req.session.logged_in);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/cartoon', async (req, res) => {
+  try {
+    const arts = await getArtsByCategoryId(1);
+    renderCategory(res, arts, req.session.logged_in);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get('/cartoon', async (req, res) => {
+  try {
+    const arts = await getArtsByCategoryId(1);
+    renderCategory(res, arts, req.session.logged_in);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get('/realism', async (req, res) => {
+  try {
+    const arts = await getArtsByCategoryId(2);
+    renderCategory(res, arts, req.session.logged_in);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get('/abstract', async (req, res) => {
+  try {
+    const arts = await getArtsByCategoryId(3);
+    renderCategory(res, arts, req.session.logged_in);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get('/digital', async (req, res) => {
+  try {
+    const arts = await getArtsByCategoryId(4);
+    renderCategory(res, arts, req.session.logged_in);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/sketch', async (req, res) => {
+  try {
+    const arts = await getArtsByCategoryId(5);
+    renderCategory(res, arts, req.session.logged_in);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 router.get('/art/:id', async (req, res) => {
   try {
     const artData = await Art.findByPk(req.params.id, {
@@ -83,13 +141,33 @@ router.get('/profile', (req, res) => {
 // Upload route
 router.get('/upload', (req, res) => {
     res.render('upload');
-
 });
 
 // Home route
 router.get('/home', (req, res) => {
     res.render('home'); 
 });
+
+async function getArtsByCategoryId(categoryId) {
+  // Get arts and JOIN with user data.
+  const artData = await Art.findAll({
+    where: { category_id: 1 },
+    include: [
+      {
+        model: User,
+        attributes: ['name'],
+      },
+    ],
+  });
+
+  // Serialize data so the template can read it
+  return artData.map((art) => art.get({ plain: true }));
+} 
+
+function renderCategory(res, arts, loggedIn) {
+  // Pass serialized data and session flag into template
+  res.render('categories', { arts, loggedIn});
+}
 
 // Export the router
 module.exports = router;
