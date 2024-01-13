@@ -14,7 +14,7 @@ const upload = multer({ storage });
 // get all art 
 router.get('/', async (req, res) => {
   // find all art
-  console.log('here################')
+ 
   try {
     const artData = await Art.findAll( {
       include: [{ model: Category }, { model: User }]
