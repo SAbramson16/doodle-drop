@@ -14,6 +14,7 @@
 
 <body>
   <section class="hero is-medium">
+    
     <nav class="navbar">
       <div class="container">
         <div id="navMenu" class="navbar-menu">
@@ -28,12 +29,14 @@
             <a class="navbar-item" href="/digital">Digital</a>
             <a class="navbar-item" href="/Sketch">Cartoon</a>
           </div>
-
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
                 <a class="navbar-item">Profile</a>
-                <a class="navbar-item">Logout</a>
+                <a class="navbar-item" id="login">Login</a>
+                {{#if logged_in}}
+                <a class="navbar-item" id="logout">Logout</a>
+                {{/if}}
                 <a class="github-button" href="https://github.com/RecceRaven"
                   data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large"
                   aria-label="Follow @RecceRaven on GitHub">Follow @RecceRaven</a>
@@ -43,6 +46,7 @@
         </div>
       </div>
     </nav>
+    
 
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
@@ -62,6 +66,9 @@
       </nav>
     </div>
   </section>
+  {{#if logged_in}}
+  <script src="../../public/js/logout.js"></script>
+  {{/if}}
    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
