@@ -16,7 +16,7 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the main page
-        document.location.replace('/home');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
@@ -41,7 +41,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/home');
+        alert('Sign up successful! Please log in');
       } else {
         alert(response.statusText);
       }
