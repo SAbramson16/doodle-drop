@@ -33,9 +33,11 @@
             <div class="navbar-item">
               <div class="buttons">
                 <a class="navbar-item" >Profile</a>
-                <a class="navbar-item" href="/login" id="login">Login</a>
+                
                 {{#if logged_in}}
                 <a class="navbar-item" href="/logout" id="logout">Logout</a>
+                {{else}}
+                <a class="navbar-item" href="/login" id="login">Login</a>
                 {{/if}}
                 <a class="github-button" href="https://github.com/RecceRaven"
                   data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large"
@@ -58,7 +60,7 @@
       <nav class="tabs">
         <div class="container">
           <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/home">Home</a></li>
             <li><a>Contact Us</a></li>
             <li><a>Careers</a></li>
           </ul>
