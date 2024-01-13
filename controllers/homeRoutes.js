@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const withAuth = require('../utils/auth');
-const { Art, User } = require('../models');
+const { Art, Category, User } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -37,22 +37,6 @@ router.get('/cartoon', async (req, res) => {
   }
 });
 
-router.get('/cartoon', async (req, res) => {
-  try {
-    const arts = await getArtsByCategoryId(1);
-    renderCategory(res, arts, req.session.logged_in);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-router.get('/cartoon', async (req, res) => {
-  try {
-    const arts = await getArtsByCategoryId(1);
-    renderCategory(res, arts, req.session.logged_in);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 router.get('/realism', async (req, res) => {
   try {
     const arts = await getArtsByCategoryId(2);
@@ -61,6 +45,7 @@ router.get('/realism', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get('/abstract', async (req, res) => {
   try {
     const arts = await getArtsByCategoryId(3);
@@ -69,6 +54,7 @@ router.get('/abstract', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get('/digital', async (req, res) => {
   try {
     const arts = await getArtsByCategoryId(4);
@@ -86,6 +72,7 @@ router.get('/sketch', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 router.get('/art/:id', async (req, res) => {
   try {
     const artData = await Art.findByPk(req.params.id, {
@@ -139,8 +126,19 @@ router.get('/profile', (req, res) => {
 });
 
 // Upload route
-router.get('/upload', (req, res) => {
-    res.render('upload');
+router.get('/upload', async (req, res) => {
+  try {
+    // Get all categories
+    const categoryData = await Category.findAll();
+
+    // Serialize data so the template can read it
+    const categories = categoryData.map((category) => category.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('upload', { categories });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // Home route
@@ -151,7 +149,7 @@ router.get('/home', (req, res) => {
 async function getArtsByCategoryId(categoryId) {
   // Get arts and JOIN with user data.
   const artData = await Art.findAll({
-    where: { category_id: 1 },
+    where: { category_id: categoryId },
     include: [
       {
         model: User,
