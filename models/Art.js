@@ -19,7 +19,6 @@ Art.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-
     medium: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -27,7 +26,7 @@ Art.init(
     imageUrl: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'www.placekitten.com',
+      defaultValue: 'https://www.shutterstock.com/image-vector/modern-camera-doodle-style-vector-600nw-1026204646.jpg',
       validate: {
         isUrl: true
       }

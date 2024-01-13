@@ -37,6 +37,10 @@ body p {
     font-family: 'Roboto', sans-serif;
 }
 
+.container {
+    margin: 25px 0;
+}
+
 .box {
     background-color: var(--midblue);
 }

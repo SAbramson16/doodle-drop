@@ -37,7 +37,11 @@ const sess = {
 app.use(session(sess));
 
 // Set up Handlebars engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', exphbs(
+  {
+    defaultLayout: 'main', partialsDir: [path.join(__dirname, 'views/partials')]
+  }
+  ));
 app.set('view engine', 'handlebars');
 
 // Middleware for JSON and form data parsing
