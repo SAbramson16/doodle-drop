@@ -4,23 +4,8 @@
     <div class="box">
       <article class="media">
         <div class="media-content">
-        <div class="content">
-          <p>
-          <strong>{{User.name}}:</strong> This is an awesome picture!
-          <br>
-          <small>Posted on: January 10, 2024</small>
-          </p>
-        </div>
-        </div>
-      </article>
-      <article class="media">
-        <div class="media-content">
-        <div class="content">
-          <p>
-          <strong>Commenter2:</strong> I love it!
-          <br>
-          <small>Posted on: January 10, 2024</small>
-          </p>
+        <div class="content" id="postedComments">
+
         </div>
         </div>
       </article>
@@ -30,10 +15,12 @@
     <div class="field">
       <label class="label">Add a comment:</label>
       <div class="control">
-        <textarea class="textarea" placeholder="Your comment..."></textarea>
+        <textarea class="textarea" placeholder="Your comment..." id="commentContent"></textarea>
       </div>
       <div class="control">
-        <button class="button is-primary">Post Comment</button>
+        <button class="button is-primary" id="postCommentBtn">Post Comment</button>
       </div>
     </div>
   </div>
+
+  <script src="/public/js/comments.js"></script>

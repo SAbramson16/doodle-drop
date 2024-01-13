@@ -4,6 +4,8 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
+const commentsRoutes = require('./controllers/api/commentRoutes');
 
 const routes = require('./controllers');
 
@@ -53,6 +55,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+
+// for parsing application/json
+app.use(bodyParser.json()); 
+
+// Comment Routes setup
+app.use('/api', commentsRoutes);
 
 // Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {
