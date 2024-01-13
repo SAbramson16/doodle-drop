@@ -2,6 +2,7 @@
 const multer = require('multer');
 const router = require('express').Router();
 
+
 const { Art, Category, User } = require('../../models');
 const { deleteFromS3, s3Upload, generateS3Url } = require('../../utils/aws');
 
@@ -13,6 +14,7 @@ const upload = multer({ storage });
 // get all art 
 router.get('/', async (req, res) => {
   // find all art
+ 
   try {
     const artData = await Art.findAll( {
       include: [{ model: Category }, { model: User }]
@@ -22,14 +24,14 @@ router.get('/', async (req, res) => {
       art.imageUrl = await generateS3Url(art.imageUrl);
     }
 
-    console.log(artData);
     res.status(200).json(artData);
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
 
-// get one product
+// get one art
 router.get('/:id', async (req, res) => {
   // find a single art by its `id`
   try {
@@ -49,18 +51,21 @@ router.get('/:id', async (req, res) => {
 });
 
 // create new art - NOT WORKING YET
+
 router.post('/', upload.single('image'), async (req, res) => {
   // create a new art
   try {
-    const artData = await Art.create(req.body, {
+    const categoryId = parseInt(req.body.category_id, 10);
+    const newArt = await Art.create({
+        ...req.body, category_id: categoryId,
       include: [{ model: Category }, { model: User }]
     });
 
-    const imageUrl = await s3Upload(req.file.buffer, req.file.mimetype);
-    artData.imageUrl = imageUrl;
-    await artData.save({ fields: ['imageUrl'] });
+    const imageUrl = await s3Upload(req.file.originalname, req.file.buffer, req.file.mimetype);
+    newArt.imageUrl = imageUrl;
+    await newArt.save({ fields: ['imageUrl'] });
  
-    res.status(200).json(artData);
+    res.status(200).json(newArt);
   } catch (err) {
     res.status(400).json(err);
   }

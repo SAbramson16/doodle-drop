@@ -13,20 +13,20 @@ Art.init(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     medium: {
       type: DataTypes.STRING,
-      allowNull: false,
-  },
+      allowNull: true,
+    },
     imageUrl: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fcamera_5904483&psig=AOvVaw00PHGoAd1X_GovF-jjZdZo&ust=1705000670662000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCODlsOHE04MDFQAAAAAdAAAAABBC',
+      defaultValue: 'https://www.shutterstock.com/image-vector/modern-camera-doodle-style-vector-600nw-1026204646.jpg',
       validate: {
         isUrl: true
       }

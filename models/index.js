@@ -17,7 +17,7 @@ Art.belongsTo(Category, {
 
 Art.belongsTo(User, {
     foreignKey:"user_id",
-    onDelete: 'CASCADE'
+    // onDelete: 'CASCADE'
 })
 
 module.exports = {

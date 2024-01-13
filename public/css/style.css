@@ -27,6 +27,7 @@
 
 }
 
+
 .hero {
     background-color: var(--darkestblue);
 }
@@ -35,6 +36,10 @@ body p {
     color: var(--bone);
     background-color: var(--midblue);
     font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    margin: 25px 0;
 }
 
 .box {

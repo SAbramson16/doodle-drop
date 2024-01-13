@@ -7,30 +7,24 @@ const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
 const region = process.env.AWS_DEFAULT_REGION;
 const bucketName = process.env.AWS_BUCKET_NAME;
 
-const RESIZE_OPTIONS = { height: 1920, width: 1080, fit: 'contain' };
-
-const randomImageName = (bytes =32) => crypto.randomBytes(bytes).toString('hex');
-
 const client = new S3Client({
   credentials: { accessKeyId, secretAccessKey }, region
 });
 
-async function upload(fileBuffer, mimetype) {
-  const buffer = await sharp(fileBuffer).resize(RESIZE_OPTIONS).toBuffer();
-  const imageName = randomImageName();
-
+async function upload(fileName, fileBuffer, mimetype) {
   const command = new PutObjectCommand({
     Bucket: bucketName,
-    Key: imageName,
-    Body: buffer,
+    Key: fileName,
+    Body: fileBuffer,
     ContentType: mimetype,
   });
 
   try {
-    const response = await client.send(command);
-    console.log(response);
+    await client.send(command);
+    return `https://${bucketName}.s3.amazonaws.com/${fileName}`;
   } catch (err) {
     console.error(err);
+    throw(err);
   }
 }
 

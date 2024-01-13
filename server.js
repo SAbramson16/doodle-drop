@@ -4,7 +4,8 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const homeRoutes = require('./controllers/homeRoutes'); 
+
+const routes = require('./controllers');
 
 // Initialize Express application
 dotenv.config();
@@ -36,7 +37,11 @@ const sess = {
 app.use(session(sess));
 
 // Set up Handlebars engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', exphbs(
+  {
+    defaultLayout: 'main', partialsDir: [path.join(__dirname, 'views/partials')]
+  }
+  ));
 app.set('view engine', 'handlebars');
 
 // Middleware for JSON and form data parsing
@@ -45,9 +50,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware for serving static files
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Use homeRoutes for the root path '/'
-app.use('/', homeRoutes);
+app.use('/', routes);
 
 // Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {
