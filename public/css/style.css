@@ -49,6 +49,7 @@ body p {
     color: var(--bone);
     background-color: var(--midblue);
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 
 #uploadBtn {
@@ -56,6 +57,7 @@ body p {
     color: var(--bone);
     border-style: none;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     transition-duration: 200ms;
     margin: 20px;
 }
@@ -89,6 +91,7 @@ body strong {
     color: var(--bone);
     border-style: none;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     transition-duration: 200ms;
 }
 
@@ -148,6 +151,7 @@ body strong {
 #loginButton {
     background-color: var(--green);
     color: var(--bone);
+    font-weight: bold;
     border-style: none;
     font-family: 'Roboto', sans-serif;
     transition-duration: 200ms;    
@@ -163,6 +167,7 @@ body strong {
     color: var(--bone);
     border-style: none;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     transition-duration: 200ms;    
 }
 
