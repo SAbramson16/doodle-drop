@@ -27,9 +27,10 @@ const artData = [
         title: 'Color Splash',
         description: 'Abstract Splash of color',
         medium: 'Abstract',
-        imageUrl: 'https://doodle-drop-images.s3.amazonaws.com/abstract-colorful-splash-3d-background-generative-ai-background_60438-2509.avif'
+        imageUrl: 'https://doodle-drop-images.s3.amazonaws.com/abstract-colorful-splash-3d-background-generative-ai-background_60438-2509.avif',
         category_id: 3
     },
+    {
         title: 'Portrait',
         description: 'Digital Art Portrait',
         medium: 'Digital',
