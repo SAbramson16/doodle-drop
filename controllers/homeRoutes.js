@@ -133,6 +133,11 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+//Logout route
+router.get('/logout', (req, res) => {
+  res.render('login');
+});
+
 // Profile route
 router.get('/profile', (req, res) => {
     res.render('profile'); 
