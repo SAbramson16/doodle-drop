@@ -23,14 +23,15 @@
     font-family: 'Roboto', sans-serif;
     font-size:larger;
     font-weight: bold;
-    flex-wrap: wrap-reverse;
+
 }
 
 .navbar-menu a {
     color: var(--darkestblue);
     transition-duration: 200ms;
     justify-content: space-between;
-    display: inline-block;
+    display: inline;
+    align-self: auto;
 }
 
 .navbar-menu a:hover {
