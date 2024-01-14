@@ -29,9 +29,10 @@
           <div class="navbar-item">
             <div class="buttons">
               <a class="navbar-item" >Profile</a>
-              <a class="navbar-item" href="/login" id="login">Login</a>
               {{#if logged_in}}
               <a class="navbar-item" href="/logout" id="logout">Logout</a>
+              {{else}}
+              <a class="navbar-item" href="/login" id="login">Login</a>
               {{/if}}
                 <a class="github-button" href="https://github.com/RecceRaven/DoodleDrop"
                   data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large"
