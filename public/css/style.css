@@ -45,6 +45,14 @@
     background-color: var(--darkestblue);
 }
 
+.hero-body {
+    padding: 0;
+}
+
+.section {
+    padding: 0;
+}
+
 body p {
     color: var(--bone);
     background-color: var(--midblue);
@@ -95,7 +103,7 @@ body strong {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     transition-duration: 200ms;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 #postCommentBtn:hover {
