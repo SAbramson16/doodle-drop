@@ -9,22 +9,35 @@
 
 }
 
+.navbar {
+    background-color: var(--darkestblue);
+}
+
 .navbar-menu {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    padding: 1%;
     background-color: var(--red);
     transition-duration: 200ms;
     font-family: 'Roboto', sans-serif;
+    font-size:larger;
     font-weight: bold;
+
 }
 
 .navbar-menu a {
     color: var(--darkestblue);
     transition-duration: 200ms;
+    justify-content: space-between;
+    display: inline;
+    align-self: auto;
 }
 
 .navbar-menu a:hover {
     background-color: var(--red);
     color: var(--bone);
-
+    font-size: larger;
 }
 
 .hero {
@@ -38,7 +51,9 @@ body p {
 }
 
 .container {
-    margin: 25px 0;
+    margin: auto;
+    width: 75%;
+    align-items: center;
 }
 
 .box {
