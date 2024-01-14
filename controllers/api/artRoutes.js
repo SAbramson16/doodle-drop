@@ -53,12 +53,11 @@ router.get('/:id', async (req, res) => {
 // create new art - NOT WORKING YET
 
 router.post('/', upload.single('image'), async (req, res) => {
-
-
   // create a new art
   try {
+    const categoryId = parseInt(req.body.category_id, 10);
     const newArt = await Art.create({
-        ...req.body,
+        ...req.body, category_id: categoryId,
       include: [{ model: Category }, { model: User }]
     });
 
