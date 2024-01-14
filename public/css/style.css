@@ -51,6 +51,15 @@ body p {
     font-family: 'Roboto', sans-serif;
 }
 
+#uploadBtn {
+    background-color: var(--green);
+    color: var(--bone);
+    border-style: none;
+    font-family: 'Roboto', sans-serif;
+    transition-duration: 200ms;
+    margin: 20px;
+}
+
 .container {
     margin: auto;
     width: 75%;

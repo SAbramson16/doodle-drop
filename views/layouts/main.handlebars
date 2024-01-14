@@ -28,7 +28,7 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="navbar-item" >Profile</a>
+              <a class="navbar-item" href="/profile">Profile</a>
               {{#if logged_in}}
               <a class="navbar-item" href="/logout" id="logout">Logout</a>
               {{else}}
@@ -45,6 +45,9 @@
       
     <section class="hero is-medium">
       <!-- Hero content: will be in the middle -->
+      <div class="control">
+        <button class="button is-primary" href="/upload" id="uploadBtn">Upload Artwork</button>
+      </div>
       <div class="hero-body">
         {{{body}}}
       </div>
