@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DoodleDrop</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -13,42 +13,37 @@
 </head>
 
 <body>
-  <section class="hero is-medium">
-    
-    <nav class="navbar">
-      <div class="container">
-        <div id="navMenu" class="navbar-menu">
-          <div class="navbar-start">
-            <div class="navbar-brand">
-              <div class="navbar-item"></div>
-              <img src="/images/DoodleLogo.png" width="250" height="50">
-            </div>
-            <a class="navbar-item" href="/cartoon">Cartoon</a>
-            <a class="navbar-item" href="/realism">Realism</a>
-            <a class="navbar-item" href="/abstract">Abstract</a>
-            <a class="navbar-item" href="/digital">Digital</a>
-            <a class="navbar-item" href="/Sketch">Sketch</a>
-          </div>
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="navbar-item" >Profile</a>
-                {{#if logged_in}}
-                <a class="navbar-item" href="/logout" id="logout">Logout</a>
-                {{else}}
-                <a class="navbar-item" href="/login" id="login">Login</a>
-                {{/if}}
-                <a class="github-button" href="https://github.com/RecceRaven"
-                  data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large"
-                  aria-label="Follow @RecceRaven on GitHub">Follow @RecceRaven</a>
-              </div>
-            </div>
+  <nav class="navbar">
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-start">
+        <div class="navbar-brand">
+          <div class="navbar-item"></div>
+          <img src="/images/DoodleLogo.png" width="250" height="50">
+        </div>
+        <a class="navbar-item" href="/cartoon">Cartoon</a>
+        <a class="navbar-item" href="/realism">Realism</a>
+        <a class="navbar-item" href="/abstract">Abstract</a>
+        <a class="navbar-item" href="/digital">Digital</a>
+        <a class="navbar-item" href="/Sketch">Sketch</a>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="navbar-item" >Profile</a>
+            <a class="navbar-item" href="/login" id="login">Login</a>
+            {{#if logged_in}}
+            <a class="navbar-item" href="/logout" id="logout">Logout</a>
+            {{/if}}
+            <a class="github-button" href="https://github.com/RecceRaven"
+              data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large"
+              aria-label="Follow @RecceRaven on GitHub">Follow @RecceRaven</a>
           </div>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
     
-
+  <section class="hero is-medium">
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
       {{{body}}}
@@ -59,7 +54,7 @@
       <nav class="tabs">
         <div class="container">
           <ul>
-            <li><a href="/home">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a>Contact Us</a></li>
             <li><a>Careers</a></li>
           </ul>
