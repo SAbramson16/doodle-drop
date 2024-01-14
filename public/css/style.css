@@ -95,7 +95,7 @@ body strong {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     transition-duration: 200ms;
-    margin-top: 15%;
+    margin-top: 15px;
 }
 
 #postCommentBtn:hover {
