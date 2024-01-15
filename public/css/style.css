@@ -124,6 +124,7 @@ body strong {
 #postCommentBtn:hover {
     background-color: var(--bone);
     color: var(--green);
+    font-weight: bold;
 }
 
 .card-content {
@@ -186,6 +187,7 @@ body strong {
 #loginButton:hover {
     background-color: var(--bone);
     color: var(--green);
+    font-weight: bold;
 }
 
 #signupButton {
@@ -200,6 +202,7 @@ body strong {
 #signupButton:hover {
     background-color: var(--bone);
     color: var(--green);
+    font-weight: bold;
 }
 
 .button {

@@ -49,8 +49,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// create new art - NOT WORKING YET
-
 router.post('/', upload.single('image'), async (req, res) => {
   // create a new art
   try {
@@ -64,9 +62,9 @@ router.post('/', upload.single('image'), async (req, res) => {
     newArt.imageUrl = imageUrl;
     await newArt.save({ fields: ['imageUrl'] });
  
-    res.status(200).json(newArt);
+    res.redirect('/');
   } catch (err) {
-    res.status(400).json(err);
+    res.redirect('/');
   }
 });
 
