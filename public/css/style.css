@@ -110,6 +110,7 @@ body p {
     background-color: var(--blue);
     color: var(--bone);
     border-style: none;
+    height: 30px;
 }
 
 body strong {
@@ -138,6 +139,10 @@ body strong {
 
 .card-content {
     background-color: var(--midblue);
+}
+
+.box {
+    background-color: var(--blue);
 }
 
 .content {
