@@ -6,7 +6,6 @@ const artData = [
         description: 'Beautiful sky',
         medium: 'Photograph',
         imageUrl: 'https://doodle-drop-images.s3.amazonaws.com/360_F_345034340_1ZWwYdR6S5rJaO6k1WaEVBG231mf95Z0.jpg',
-        user_id: 1,
         category_id: 2
     },
     {
