@@ -45,10 +45,19 @@
     background-color: var(--darkestblue);
 }
 
+.hero-body {
+    padding: 0;
+}
+
+.section {
+    padding: 0;
+}
+
 body p {
     color: var(--bone);
     background-color: var(--midblue);
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 
 #uploadBtn {
@@ -56,6 +65,7 @@ body p {
     color: var(--bone);
     border-style: none;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     transition-duration: 200ms;
     margin: 20px;
 }
@@ -66,9 +76,11 @@ body p {
     align-items: center;
 }
 
-.box {
-    background-color: var(--midblue);
+.image {
+    padding-top: 25px;
+    padding-bottom: 5px;
 }
+
 
 .textarea {
     background-color: var(--blue);
@@ -84,15 +96,17 @@ body strong {
     color: var(--green);
 }
 
-#commentButton {
+#postCommentBtn {
     background-color: var(--green);
     color: var(--bone);
     border-style: none;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     transition-duration: 200ms;
+    margin-top: 5px;
 }
 
-#commentButton:hover {
+#postCommentBtn:hover {
     background-color: var(--bone);
     color: var(--green);
 }
@@ -148,6 +162,7 @@ body strong {
 #loginButton {
     background-color: var(--green);
     color: var(--bone);
+    font-weight: bold;
     border-style: none;
     font-family: 'Roboto', sans-serif;
     transition-duration: 200ms;    
@@ -163,6 +178,7 @@ body strong {
     color: var(--bone);
     border-style: none;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     transition-duration: 200ms;    
 }
 
