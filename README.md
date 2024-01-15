@@ -41,20 +41,20 @@ Installation is not required when viewing the application using a web browser. H
 
 ## Screenshots
 
-###Login:
+### Login:
 ![DoodleLog](https://github.com/RecceRaven/DoodleDrop/assets/149850541/f784f93a-36b2-4e59-a9ed-96091b255fbe)
 
-###Upload:
+### Upload:
 ![DoodleUpload](https://github.com/RecceRaven/DoodleDrop/assets/149850541/031d6b68-f9ae-4044-bb82-7e4f9d1352eb)
 
 
 ## Addition Resources
 
-###Link to repo on GitHub:
+### Link to repo on GitHub:
 
 [Click Me to See Repo](https://github.com/RecceRaven/DoodleDrop)
 
-###Link to deployed application:
+### Link to deployed application:
 
 [Deployed Application](https://doodledrop-7357eeb23db1.herokuapp.com/)
 
