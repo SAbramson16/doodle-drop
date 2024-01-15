@@ -159,8 +159,7 @@ async function getArtsByCategoryId(categoryId) {
     include: [
       {
         model: User,
-        model: Comment,
-        attributes: ['name'],
+        model: Comment
       },
     ],
   });
