@@ -23,7 +23,12 @@
       </div>
        <input type="hidden" id="artId" name="art_id" value="{{artId}}">
       <div class="control">
+        <h1>Sharon {{logged_in}}</h1>
+        {{#if logged_in}}
         <button id="postCommentBtn" class="button is-primary" type="submit">Post Comment</button>
+        {{else}}
+        <h2>Please log in to post a comment!</h2>
+        {{/if}}
       </div>
     </form>
   </div>
