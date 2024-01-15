@@ -3,7 +3,7 @@ const multer = require('multer');
 const router = require('express').Router();
 
 
-const { Art, Category, User } = require('../../models');
+const { Art, Category, Comment, User } = require('../../models');
 const { deleteFromS3, s3Upload, generateS3Url } = require('../../utils/aws');
 
 const storage = multer.memoryStorage();
@@ -14,10 +14,9 @@ const upload = multer({ storage });
 // get all art 
 router.get('/', async (req, res) => {
   // find all art
- 
   try {
     const artData = await Art.findAll( {
-      include: [{ model: Category }, { model: User }]
+      include: [{ model: Category }, { model: Comment }, { model: User }]
     });
 
     for (const art of artData) {
@@ -36,7 +35,7 @@ router.get('/:id', async (req, res) => {
   // find a single art by its `id`
   try {
     const artData = await Art.findByPk(req.params.id, {
-      include: [{ model: Category }, { model: User }]
+      include: [{ model: Category }, { model: Comment }, { model: User }]
     });
     if (!artData) {
       res.status(404).json({ message: 'No art found with that id!'});

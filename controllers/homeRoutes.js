@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const withAuth = require('../utils/auth');
-const { Art, Category, User } = require('../models');
+const { Art, Category, Comment, User } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          model: Comment,
         },
       ],
     });
@@ -24,6 +24,7 @@ router.get('/', async (req, res) => {
       logged_in: req.session.logged_in 
     });
   } catch (err) {
+    console.log('ERROR:', err);
     res.status(500).json(err);
   }
 });
@@ -158,6 +159,7 @@ async function getArtsByCategoryId(categoryId) {
     include: [
       {
         model: User,
+        model: Comment,
         attributes: ['name'],
       },
     ],
