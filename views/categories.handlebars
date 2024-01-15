@@ -1,13 +1,13 @@
 <section class="section">
-  {{#each arts}}
+  {{#each arts as |art|}}
     <div class="container">
       {{> imagePost
-        title=this.title
-        description=this.description
-        imageUrl=this.imageUrl
-        userId=this.user_id
+        title=art.title
+        description=art.description
+        imageUrl=art.imageUrl
+        userId=art.user_id
       }}
-      {{> commentSection artId=this.id comments=this.comments }}
+      {{> commentSection artId=art.id comments=art.comments logged_in=../logged_in }}
     </div>
   {{/each}}
 </section>
