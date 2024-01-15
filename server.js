@@ -54,10 +54,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-
 // for parsing application/json
 app.use(bodyParser.json()); 
+
+app.use('/', routes);
 
 // Comment Routes setup
 app.use('/api', commentsRoutes);
