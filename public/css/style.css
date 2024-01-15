@@ -79,8 +79,23 @@ body p {
 .image {
     padding-top: 25px;
     padding-bottom: 5px;
+    margin: auto;
+    width: 75%;
+    align-items: center;
 }
 
+.comment-section {
+    padding-bottom: 5px;
+    margin: auto;
+    width: 75%;
+    align-items: center;
+}
+.content  {
+    padding-bottom: 5px;
+    margin: auto;
+    width: 75%;
+    align-items: center;
+}
 
 .textarea {
     background-color: var(--blue);
