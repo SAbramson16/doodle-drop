@@ -53,6 +53,15 @@
     padding: 0;
 }
 
+#uploadBtn {
+    background-color: var(--green);
+    color: var(--bone);
+    border-style: none;
+    font-family: 'Roboto', sans-serif;
+    transition-duration: 200ms;
+    margin: 20px;
+}
+
 body p {
     color: var(--bone);
     background-color: var(--midblue);
