@@ -64,9 +64,11 @@
     </nav>
 
 
-    <!-- Hero content: will be in the middle -->
+    <!-- Hero content: will be in the middle. -->
     <div class="control">
+      {{#if logged_in}}
         <a class="button is-primary" href="/upload" id="uploadBtn">Upload Artwork</a>
+        {{/if}}
       </div>
     <div class="hero-body">
       {{{body}}}
