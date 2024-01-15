@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const arts = artData.map((art) => art.get({ plain: true }));
     arts.map((art) => art.logged_in = req.session.logged_in);
-    console.log('!@##%^&(*&^%$#@!', req.session.logged_in);
+    
     // Pass serialized data and session flag into template
     res.render('home', { 
       arts, 
@@ -32,7 +32,6 @@ router.get('/', async (req, res) => {
 
 router.get('/cartoon', async (req, res) => {
   try {
-    console.log("!@!#$%&^%$", req.session)
     const arts = await getArtsByCategoryId(1);
     renderCategory(res, arts, req.session.logged_in);
   } catch (err) {
@@ -134,8 +133,11 @@ router.get('/profile', (req, res) => {
 });
 
 // Upload route
-router.get('/upload', async (req, res) => {
+router.get('/upload', withAuth, async (req, res) => {
   try {
+    const loggedInUser = await User.findByPk(req.session.user_id, {
+      attributes: ['name'],
+    });
     // Get all categories
     const categoryData = await Category.findAll();
 
@@ -143,7 +145,9 @@ router.get('/upload', async (req, res) => {
     const categories = categoryData.map((category) => category.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('upload', { categories });
+    res.render('upload', { categories, 
+      logged_in: req.session.logged_in, 
+      username: loggedInUser.name, });
   } catch (err) {
     res.status(500).json(err);
   }

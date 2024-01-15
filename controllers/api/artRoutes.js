@@ -29,7 +29,6 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 // get one art
 router.get('/:id', async (req, res) => {
   // find a single art by its `id`
