@@ -155,6 +155,10 @@ body strong {
 }
 
 .content {
+    background-color: var(--blue);
+}
+
+.content {
     background-color: var(--darkestblue);
     color: var(--bone);
     text-align: center;
@@ -352,5 +356,31 @@ a.dropdown-item:hover {
 }
 
 .tabs a {
+    font-weight: bold;
+}
+
+.button {
+    font-family: 'Roboto', sans-serif;
+    transition-duration: 200ms;
+    background-color: var(--red);
+    border-style: none;
+    font-weight: bold;
+    color: var(--darkestblue);
+    font-size: 20px;
+}
+
+.button:hover {
     color: var(--bone);
 }
+
+.dropdown-item {
+    background-color: var(--red);
+    color: var(--darkestblue);
+}
+
+.dropdown-content {
+    background-color: var(--red);
+    color: var(--darkestblue);
+}
+
+#dropdown-menu a {

@@ -1,9 +1,9 @@
 // middleware for multipart uploads to S3
 const multer = require('multer');
 const router = require('express').Router();
+const withAuth = require('../../utils/auth');
 
-
-const { Art, Category, User } = require('../../models');
+const { Art, Category, Comment, User } = require('../../models');
 const { deleteFromS3, s3Upload, generateS3Url } = require('../../utils/aws');
 
 const storage = multer.memoryStorage();
@@ -14,10 +14,9 @@ const upload = multer({ storage });
 // get all art 
 router.get('/', async (req, res) => {
   // find all art
- 
   try {
     const artData = await Art.findAll( {
-      include: [{ model: Category }, { model: User }]
+      include: [{ model: Category }, { model: Comment }, { model: User }]
     });
 
     for (const art of artData) {
@@ -30,13 +29,12 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 // get one art
 router.get('/:id', async (req, res) => {
   // find a single art by its `id`
   try {
     const artData = await Art.findByPk(req.params.id, {
-      include: [{ model: Category }, { model: User }]
+      include: [{ model: Category }, { model: Comment }, { model: User }]
     });
     if (!artData) {
       res.status(404).json({ message: 'No art found with that id!'});
@@ -50,9 +48,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// create new art - NOT WORKING YET
-
-router.post('/', upload.single('image'), async (req, res) => {
+router.post('/', [withAuth, upload.single('image')], async (req, res) => {
   // create a new art
   try {
     const categoryId = parseInt(req.body.category_id, 10);
@@ -65,9 +61,9 @@ router.post('/', upload.single('image'), async (req, res) => {
     newArt.imageUrl = imageUrl;
     await newArt.save({ fields: ['imageUrl'] });
  
-    res.status(200).json(newArt);
+    res.redirect('/');
   } catch (err) {
-    res.status(400).json(err);
+    res.redirect('/');
   }
 });
 

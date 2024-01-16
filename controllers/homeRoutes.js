@@ -1,17 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const withAuth = require('../utils/auth');
-const { Art, Category, User } = require('../models');
+const { Art, Category, Comment, User } = require('../models');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // Get all arts and JOIN with user data.
     const artData = await Art.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'email'],
         },
+        {
+          model: Comment
+        }
       ],
     });
 
@@ -19,11 +22,13 @@ router.get('/', async (req, res) => {
     const arts = artData.map((art) => art.get({ plain: true }));
 
     // Pass serialized data and session flag into template
+    console.log('Session:', req.session);
     res.render('home', { 
       arts, 
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.log('ERROR:', err);
     res.status(500).json(err);
   }
 });
@@ -120,14 +125,22 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+//Logout route
+router.get('/logout', (req, res) => {
+  res.render('login');
+});
+
 // Profile route
 router.get('/profile', (req, res) => {
     res.render('profile'); 
 });
 
 // Upload route
-router.get('/upload', async (req, res) => {
+router.get('/upload', withAuth, async (req, res) => {
   try {
+    const loggedInUser = await User.findByPk(req.session.user_id, {
+      attributes: ['id'],
+    });
     // Get all categories
     const categoryData = await Category.findAll();
 
@@ -135,7 +148,9 @@ router.get('/upload', async (req, res) => {
     const categories = categoryData.map((category) => category.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('upload', { categories });
+    res.render('upload', { categories,
+      logged_in: req.session.logged_in,
+      userId: loggedInUser.dataValues.id, });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -143,7 +158,7 @@ router.get('/upload', async (req, res) => {
 
 // Home route
 router.get('/home', (req, res) => {
-    res.render('home'); 
+    res.redirect('/'); 
 });
 
 async function getArtsByCategoryId(categoryId) {
@@ -153,8 +168,11 @@ async function getArtsByCategoryId(categoryId) {
     include: [
       {
         model: User,
-        attributes: ['name'],
+        attributes: ['name', 'email'],
       },
+      {
+        model: Comment
+      }
     ],
   });
 
@@ -164,7 +182,7 @@ async function getArtsByCategoryId(categoryId) {
 
 function renderCategory(res, arts, loggedIn) {
   // Pass serialized data and session flag into template
-  res.render('categories', { arts, loggedIn});
+  res.render('categories', { arts, logged_in: loggedIn});
 }
 
 // Export the router
