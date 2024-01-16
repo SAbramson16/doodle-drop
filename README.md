@@ -4,15 +4,11 @@
 
 DoodleDrop is a web application designed to allow artists to share their art. The user may elect to upload their art and categorize it based on the style of art, whether a sketch, realistic portrait, etc. You may also make comments on posted art pieces. 
 
-
-
-
 ## Authors
 
 - [Sharon Abramson](https://www.github.com/SAbramson16)
 - [Kay Landry](https://www.github.com/Kaystaken)
 - [Anthony Ramdeen](https://www.github.com/RecceRaven)
-
 
 ## Installation
 
@@ -37,7 +33,6 @@ Installation is not required when viewing the application using a web browser. H
 - Ability to upload your art
 - Choose which category to view
 - Comment on existing art pieces
-
 
 ## Screenshots
 

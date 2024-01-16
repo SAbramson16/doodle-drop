@@ -22,7 +22,7 @@ Art.belongsTo(Category, {
 
 Art.belongsTo(User, {
     foreignKey:'user_id',
-})
+});
 
 Art.hasMany(Comment, {
     foreignKey: 'art_id',

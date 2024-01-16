@@ -3,26 +3,33 @@ const router = express.Router();
 const withAuth = require('../utils/auth');
 const { Art, Category, Comment, User } = require('../models');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
+    const loggedInUser = await User.findByPk(req.session.user_id, {
+      attributes: ['name'],
+    });
     // Get all arts and JOIN with user data.
     const artData = await Art.findAll({
       include: [
         {
           model: User,
-          model: Comment,
+          attributes: ['name'],
         },
+        {
+          model: Comment
+        }
       ],
     });
 
     // Serialize data so the template can read it
     const arts = artData.map((art) => art.get({ plain: true }));
     arts.map((art) => art.logged_in = req.session.logged_in);
-    
+    console.log('USERNAME:' + loggedInUser.name);
     // Pass serialized data and session flag into template
     res.render('home', { 
       arts, 
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
+      username: loggedInUser.name
     });
   } catch (err) {
     console.log('ERROR:', err);
