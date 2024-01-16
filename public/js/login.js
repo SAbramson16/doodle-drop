@@ -7,7 +7,6 @@ const loginFormHandler = async (event) => {
   
     if (name && password) {
       // Send a POST request to the API endpoint
-      console.log('Request Body', {name, password})
       const response = await fetch('/api/users/login', {
         method: 'POST',
         body: JSON.stringify({ name, password }),
@@ -16,10 +15,13 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the main page
-        document.location.replace('/home');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
+    }
+    if (!name || !password) {
+      alert('Please enter valid name and password or sign up!');
     }
   };
   
@@ -38,7 +40,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/home');
+        alert('Sign up successful! Please log in');
       } else {
         alert(response.statusText);
       }
@@ -50,7 +52,9 @@ const loginFormHandler = async (event) => {
     .addEventListener('submit', loginFormHandler);
   
   document
-    .querySelector('.signup-section')
+    .querySelector('.signup-form')
     .addEventListener('submit', signupFormHandler);
+
+    
   
     

@@ -5,18 +5,39 @@ const artData = [
         title: 'Sky',
         description: 'Beautiful sky',
         medium: 'Photograph',
-        imageUrl: 'https://doodle-drop-images.s3.amazonaws.com/360_F_345034340_1ZWwYdR6S5rJaO6k1WaEVBG231mf95Z0.jpg-vector/little-cute-cat-cartoon-character_1308-140198.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1704153600&semt=ais',
-        user_id: 1,
-        category_id: 1
+        imageUrl: 'https://doodle-drop-images.s3.amazonaws.com/360_F_345034340_1ZWwYdR6S5rJaO6k1WaEVBG231mf95Z0.jpg',
+        category_id: 2
     },
     {
-        title: 'Apples',
+        title: 'Snoopy',
         description: 'Snoopy',
         medium: 'Marker',
         imageUrl: 'https://doodle-drop-images.s3.amazonaws.com/snoopy.jpg',
-        category_id: 2
+        category_id: 1
     },
-]
+    {
+        title: 'Camera',
+        description: 'Sketch of camera',
+        medium: 'Sketch',
+        imageUrl: 'https://doodle-drop-images.s3.amazonaws.com/eye-sketch.avif',
+        category_id: 5
+    },
+    {
+        title: 'Color Splash',
+        description: 'Abstract Splash of color',
+        medium: 'Abstract',
+        imageUrl: 'https://doodle-drop-images.s3.amazonaws.com/abstract-colorful-splash-3d-background-generative-ai-background_60438-2509.avif',
+        category_id: 3
+    },
+    {
+        title: 'Portrait',
+        description: 'Digital Art Portrait',
+        medium: 'Digital',
+        imageUrl: 'https://doodle-drop-images.s3.amazonaws.com/digital+art+portrait.jpeg',
+        category_id: 4
+    },
+
+    ]
 
 const seedArt = () => Art.bulkCreate(artData);
 
