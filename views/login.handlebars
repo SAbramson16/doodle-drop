@@ -1,67 +1,74 @@
 <section class="section">
-    <div class="container">
-        <div class="columns">
-            <!-- Login Section -->
-            <div class="column is-half login-form">
-                <div class="login-section">
-                    <h1 class="title">Login</h1>
-                    <form class="login-form">
-                        <div class="field">
-                            <label class="label">Username</label>
-                            <div class="control">
-                                <input class="input" type="text" placeholder="Enter your username" id="username-login">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Password</label>
-                            <div class="control">
-                                <input class="input" type="password" placeholder="Enter your password"
-                                    id="password-login">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="control">
-                                <button class="button is-primary">Login</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Signup Section -->
-            <div class="column is-half signup-form">
-                <div class="signup-section">
-                    <h1 class="title">Signup</h1>
-                    <form>
-                        <div class="field">
-                            <label class="label">Username</label>
-                            <div class="control">
-                                <input class="input" type="text" placeholder="Enter your username" id="name-signup">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Email</label>
-                            <div class="control">
-                                <input class="input" type="email" placeholder="Enter your email" id="email-signup">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Password</label>
-                            <div class="control">
-                                <input class="input" type="password" placeholder="Enter your password"
-                                    id="password-signup">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="control">
-                                <button class="button is-primary">Signup</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+  <div class="container">
+    <div class="columns">
+<!-- Login Section -->
+<div class="column is-half login-form">
+  <div class="login-section">
+    <h1 class="title">Login</h1>
+    <form action="/api/users/login" class="login-form">
+      <div class="field">
+        <label class="label">
+          Username
+          <div class="control">
+            <input class="input" type="text" placeholder="Enter your username" id="username-login">
+          </div>
+        </label>
+      </div>
+      <div class="field">
+        <label class="label">
+          Password
+          <div class="control">
+            <input class="input" type="password" placeholder="Enter your password" id="password-login">
+          </div>
+        </label>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button" id="loginButton">Login</button>
         </div>
-    </div>
-</section>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- Signup Section -->
+<div class="column is-half signup-form">
+  <div class="signup-section">
+    <h1 class="title">Signup</h1>
+    <form action="/api/users" class="signup-form">
+      <div class="field">
+        <label class="label">
+          Username
+          <div class="control">
+            <input class="input" type="text" placeholder="Enter your username" id="name-signup">
+          </div>
+        </label>
+      </div>
+      <div class="field">
+        <label class="label">
+          Email
+          <div class="control">
+            <input class="input" type="email" placeholder="Enter your email" id="email-signup">
+          </div>
+        </label>
+      </div>
+      <div class="field">
+        <label class="label">
+          Password
+          <div class="control">
+            <input class="input" type="password" placeholder="Enter your password" id="password-signup">
+          </div>
+        </label>
+      </div>
+      <div class="field">
+        <div class="control">
+          <button class="button" id="signupButton">Signup</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 
 <script src="../public/js/login.js"></script>

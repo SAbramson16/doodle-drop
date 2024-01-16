@@ -1,26 +1,33 @@
   <!-- Comment Section -->
   <div class="comment-section">
     <!-- Comment List -->
-    <div class="box">
-      <article class="media">
-        <div class="media-content">
-        <div class="content" id="postedComments">
-
-        </div>
-        </div>
-      </article>
-    </div>
+    {{#each comments}}
+      
+        <article class="media">
+          <div class="media-content">
+            <div class="content" id="postedComments">
+             {{ this.comment }}
+            </div>
+          </div>
+        </article>
+      
+    {{/each}}
 
     <!-- Add a Comment -->
-    <div class="field">
-      <label class="label">Add a comment:</label>
-      <div class="control">
-        <textarea class="textarea" placeholder="Your comment..." id="commentContent"></textarea>
+    <form action="/api/comments" method="post">
+      <div class="field">
+        <label class="label">Add a comment:</label>
+        <div class="control">
+          <textarea class="textarea" name="comment" placeholder="Your comment..." id="commentContent"></textarea>
+        </div>
       </div>
+       <input type="hidden" id="artId" name="art_id" value="{{artId}}">
       <div class="control">
-        <button class="button is-primary" id="postCommentBtn">Post Comment</button>
+        {{#if logged_in}}
+        <button id="postCommentBtn" class="button is-primary" type="submit">Post Comment</button>
+        {{else}}
+        <h1 style="color: white">Please log in to post a comment!</h1>
+        {{/if}}
       </div>
-    </div>
+    </form>
   </div>
-
-  <script src="/public/js/comments.js"></script>

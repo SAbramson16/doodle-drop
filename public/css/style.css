@@ -9,22 +9,40 @@
 
 }
 
+.navbar {
+    background-color: var(--darkestblue);
+}
+
 .navbar-menu {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    padding: 1%;
     background-color: var(--red);
     transition-duration: 200ms;
     font-family: 'Roboto', sans-serif;
+    font-size:larger;
     font-weight: bold;
+
 }
 
 .navbar-menu a {
     color: var(--darkestblue);
     transition-duration: 200ms;
+    justify-content: space-between;
+    display: inline;
+    align-self: auto;
 }
 
 .navbar-menu a:hover {
     background-color: var(--red);
     color: var(--bone);
+}
 
+.navbar-end a:hover {
+    background-color: var(--red);
+    color: var(--bone);
+    font-size: larger;
 }
 
 
@@ -32,24 +50,72 @@
     background-color: var(--darkestblue);
 }
 
+.hero-body {
+    padding: 0;
+}
+
+.section {
+    padding: 0;
+}
+
+#uploadBtn {
+    background-color: var(--green);
+    color: var(--bone);
+    border-style: none;
+    font-family: 'Roboto', sans-serif;
+    transition-duration: 200ms;
+    margin: 20px;
+}
+
 body p {
     color: var(--bone);
     background-color: var(--midblue);
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+#uploadBtn {
+    background-color: var(--green);
+    color: var(--bone);
+    border-style: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    transition-duration: 200ms;
+    margin: 20px;
 }
 
 .container {
-    margin: 25px 0;
+    margin: auto;
+    width: 75%;
+    align-items: center;
 }
 
-.box {
-    background-color: var(--midblue);
+.image {
+    padding-top: 25px;
+    padding-bottom: 5px;
+    margin: auto;
+    width: 75%;
+    align-items: center;
+}
+
+.comment-section {
+    padding-bottom: 5px;
+    margin: auto;
+    width: 75%;
+    align-items: center;
+}
+.content  {
+    padding-bottom: 5px;
+    margin: auto;
+    width: 75%;
+    align-items: center;
 }
 
 .textarea {
     background-color: var(--blue);
     color: var(--bone);
     border-style: none;
+    height: 30px;
 }
 
 body strong {
@@ -60,26 +126,42 @@ body strong {
     color: var(--green);
 }
 
-#commentButton {
+#postCommentBtn {
     background-color: var(--green);
     color: var(--bone);
     border-style: none;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     transition-duration: 200ms;
+    margin-top: 5px;
 }
 
-#commentButton:hover {
+#postCommentBtn:hover {
     background-color: var(--bone);
     color: var(--green);
+    font-weight: bold;
+}
+
+.card {
+    background-color: var(--midblue);
 }
 
 .card-content {
     background-color: var(--midblue);
 }
 
-.content {
+.box {
     background-color: var(--blue);
+}
+
+.content {
+    background-color: var(--darkestblue);
     color: var(--bone);
+    text-align: center;
+}
+
+.content p {
+    text-align: left;
 }
 
 .title.is-4 {
@@ -95,35 +177,36 @@ body strong {
 }
 
 .input {
-    background-color: var(--midblue);
+    background-color: var(--bone);
     border-style: none;
-    color: var(--bone);
+    color: var(--darkestblue);
     font-family: 'Roboto', sans-serif;
 }
 
 #name-signup::placeholder {
-    color: var(--bone);
+    color: var(--darkestblue);
 }
 
 #email-signup::placeholder {
-    color: var(--bone);
+    color: var(--darkestblue);
 }
 
 #password-signup::placeholder {
-    color: var(--bone);
+    color: var(--darkestblue);
 }
 
 #username-login::placeholder {
-    color: var(--bone);
+    color: var(--darkestblue);
 }
 
 #password-login::placeholder {
-    color: var(--bone);
+    color: var(--darkestblue);
 }
 
 #loginButton {
-    background-color: var(--green);
+    background-color: var(--blue);
     color: var(--bone);
+    font-weight: bold;
     border-style: none;
     font-family: 'Roboto', sans-serif;
     transition-duration: 200ms;    
@@ -131,18 +214,143 @@ body strong {
 
 #loginButton:hover {
     background-color: var(--bone);
-    color: var(--green);
+    color: var(--blue);
+    font-weight: bold;
 }
 
 #signupButton {
-    background-color: var(--green);
+    background-color: var(--blue);
     color: var(--bone);
     border-style: none;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     transition-duration: 200ms;    
 }
 
 #signupButton:hover {
     background-color: var(--bone);
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.button {
+    font-family: 'Roboto', sans-serif;
+    transition-duration: 200ms;
+    background-color: var(--red);
+    border-style: none;
+    font-weight: bold;
+    color: var(--darkestblue);
+    font-size: 20px;
+}
+
+.button:hover {
+    color: var(--bone);
+}
+
+.dropdown-item {
+    background-color: var(--red);
+    color: var(--darkestblue);
+    font-size: large;
+    text-align: center;
+}
+
+a.dropdown-item:hover {
+    color: var(--bone);
+}
+
+.dropdown-item:hover {
+    color: var(--bone);
+}
+
+.dropdown-content {
+    background-color: var(--red);
+    color: var(--darkestblue);
+}
+
+#dropdown-menu a {
+    color: var(--darkestblue);
+}
+
+#dropdown-menu a:hover {
+    color: var(--bone);
+}
+
+#uploadBtn {
+    background-color: var(--blue);
+    color: var(--bone);
+    font-weight: bold;
+    border-style: none;
+    font-family: 'Roboto', sans-serif;
+    transition-duration: 200ms;  
+}
+
+#uploadBtn:hover {
+    background-color: var(--bone);
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--blue);
+    border-radius: 8px;
+    align-content: center;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .profile-name {
+    font-size: 1.5em;
+    font-weight: bold;
     color: var(--green);
+    margin-bottom: 10px;
+  }
+  
+  .profile-details {
+    font-size: 1.2em;
+    color: var(--bone);
+    margin-bottom: 20px;
+  }
+  
+  .profile-bio {
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--bone);
+  }
+  
+  .social-icons {
+    margin-top: 20px;
+  }
+  
+  .social-icons a {
+    color: #3273dc;
+    margin-right: 15px;
+    font-size: 1.5em;
+  }
+
+  #uploadFormBtn {
+    background-color: var(--blue);
+    color: var(--bone);
+    border-style: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    transition-duration: 200ms;    
+}
+
+#uploadFormBtn:hover {
+    background-color: var(--bone);
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.tabs a {
+    color: var(--bone);
 }

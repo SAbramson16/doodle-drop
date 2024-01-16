@@ -5,9 +5,9 @@
         title=this.title
         description=this.description
         imageUrl=this.imageUrl
-        userId=this.user_id
+        username=this.user.username
       }}
-      {{> commentSection }}
+      {{> commentSection artId=this.id comments=this.comments }}
     </div>
   {{/each}}
 </section>
