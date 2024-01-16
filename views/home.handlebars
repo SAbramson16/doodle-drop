@@ -7,7 +7,7 @@
         imageUrl=this.imageUrl
         username=this.user.username
       }}
-      {{> commentSection artId=this.id comments=this.comments }}
+      {{> commentSection logged_in=../logged_in artId=this.id comments=this.comments }}
     </div>
   {{/each}}
 </section>

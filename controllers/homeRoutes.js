@@ -22,6 +22,7 @@ router.get('/', withAuth, async (req, res) => {
     const arts = artData.map((art) => art.get({ plain: true }));
 
     // Pass serialized data and session flag into template
+    console.log('Session:', req.session);
     res.render('home', { 
       arts, 
       logged_in: req.session.logged_in,
