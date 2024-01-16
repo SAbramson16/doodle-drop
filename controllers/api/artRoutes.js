@@ -1,7 +1,7 @@
 // middleware for multipart uploads to S3
 const multer = require('multer');
 const router = require('express').Router();
-
+const withAuth = require('../../utils/auth');
 
 const { Art, Category, Comment, User } = require('../../models');
 const { deleteFromS3, s3Upload, generateS3Url } = require('../../utils/aws');
@@ -48,7 +48,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', upload.single('image'), async (req, res) => {
+router.post('/', [withAuth, upload.single('image')], async (req, res) => {
   // create a new art
   try {
     const categoryId = parseInt(req.body.category_id, 10);
