@@ -36,11 +36,13 @@ Installation is not required when viewing the application using a web browser. H
 
 ## Screenshots
 
-### Login:
-![DoodleLog](https://github.com/RecceRaven/DoodleDrop/assets/149850541/f784f93a-36b2-4e59-a9ed-96091b255fbe)
+### Main:
+![updatedscreen](https://github.com/RecceRaven/DoodleDrop/assets/149850541/e2607894-83fe-4613-acf0-d14e253e2afb)
 
-### Upload:
-![DoodleUpload](https://github.com/RecceRaven/DoodleDrop/assets/149850541/031d6b68-f9ae-4044-bb82-7e4f9d1352eb)
+
+### Profile:
+![updated screen2](https://github.com/RecceRaven/DoodleDrop/assets/149850541/fabba280-7748-4b54-bd73-1c34547308fc)
+
 
 
 ## Addition Resources
