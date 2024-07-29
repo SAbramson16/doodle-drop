@@ -113,7 +113,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       user,
-      logged_in: true
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -127,13 +127,15 @@ router.get('/login', (req, res) => {
 
 //Logout route
 router.get('/logout', (req, res) => {
-  res.render('login');
+  req.session.destroy(() => {
+    res.redirect('/login');
+  });
 });
 
-// Profile route
-router.get('/profile', (req, res) => {
-    res.render('profile'); 
-});
+// // Profile route
+// router.get('/profile', (req, res) => {
+//     res.render('profile'); 
+// });
 
 // Upload route
 router.get('/upload', withAuth, async (req, res) => {

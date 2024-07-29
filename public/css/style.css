@@ -6,11 +6,7 @@
     --bone: #FFE7C1;
     --green: #03C988;
     margin: 0px;
-
-}
-
-.navbar {
-    background-color: var(--darkestblue);
+    
 }
 
 .navbar-menu {
@@ -21,9 +17,8 @@
     background-color: var(--red);
     transition-duration: 200ms;
     font-family: 'Roboto', sans-serif;
-    font-size:larger;
+    font-size: larger;
     font-weight: bold;
-
 }
 
 .navbar-menu a {
@@ -45,17 +40,13 @@
     font-size: larger;
 }
 
-
 .hero {
     background-color: var(--darkestblue);
 }
 
 .hero-body {
-    padding: 0;
-}
-
-.section {
-    padding: 0;
+    background-color: var(--darkestblue);
+    padding-top: 20px !important;
 }
 
 #uploadBtn {
@@ -187,6 +178,19 @@ body strong {
     font-family: 'Roboto', sans-serif;
 }
 
+.login-header {
+    color: var(--bone);
+    font-size: xx-large;
+    text-align: center;
+}
+
+.login-subhead {
+    color: var(--bone);
+    margin-bottom: 30px;
+    font-size: x-large;
+    text-align: center;
+}
+
 #name-signup::placeholder {
     color: var(--darkestblue);
 }
@@ -205,6 +209,10 @@ body strong {
 
 #password-login::placeholder {
     color: var(--darkestblue);
+}
+
+.columns {
+    margin-top: 60px;
 }
 
 #loginButton {
@@ -383,6 +391,6 @@ a.dropdown-item:hover {
     color: var(--darkestblue);
 }
 
-#dropdown-menu a {
-    
+.hero-foot {
+    background-color: var(--darkestblue);
 }
