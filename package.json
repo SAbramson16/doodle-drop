@@ -5,7 +5,11 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "npm install --build-from-source sharp"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "keywords": [],
   "author": "",
@@ -26,5 +30,8 @@
     "sharp": "^0.33.1",
     "sqlite3": "^5.1.7",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "node-gyp": "^8.4.1"
   }
 }
